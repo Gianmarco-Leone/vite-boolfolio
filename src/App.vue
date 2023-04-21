@@ -1,22 +1,29 @@
 <script>
+// AXIOS
 import axios from "axios";
+
+// COMPONENTS
 import AppHeader from "./components/AppHeader.vue";
+import ProjectList from "./components/ProjectList.vue";
 
 export default {
   components: {
     AppHeader,
+    ProjectList,
   },
 
   data() {
     return {
-      title: "Hello world",
+      projects: {
+        list: [],
+      },
     };
   },
 
   methods: {
     fetchProjects() {
       axios.get("http://127.0.0.1:8000/api/projects").then((response) => {
-        console.log(response.data);
+        this.projects.list = response.data;
       });
     },
   },
@@ -29,7 +36,9 @@ export default {
 
 <template>
   <AppHeader />
-  <h1>{{ title }}</h1>
+  <main>
+    <ProjectList :projectsList="projects.list" />
+  </main>
 </template>
 
 <style lang="scss"></style>
