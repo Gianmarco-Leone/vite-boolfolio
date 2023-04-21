@@ -17,11 +17,17 @@ export default {
 
 <template>
   <section id="project_list" class="container py-4">
-    <h1 class="my-4">I miei progetti</h1>
-    <div class="row">
-      <div class="col d-flex" v-for="project in projectsList">
-        <ProjectCard :project="project" />
+    <div v-if="projectsList.length">
+      <h1 class="my-4">I miei progetti</h1>
+      <div class="row">
+        <div class="col d-flex" v-for="project in projectsList">
+          <ProjectCard :project="project" />
+        </div>
       </div>
+    </div>
+
+    <div v-else>
+      <h2>Nessun progetto da mostrare</h2>
     </div>
   </section>
 </template>
