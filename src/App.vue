@@ -12,18 +12,23 @@ export default {
     ProjectList,
   },
 
+  emits: ["changePage"],
+
   data() {
     return {
       projects: {
         list: [],
+        pagination: [],
       },
     };
   },
 
   methods: {
-    fetchProjects() {
-      axios.get("http://127.0.0.1:8000/api/projects").then((response) => {
-        this.projects.list = response.data;
+    fetchProjects(endpoint = null) {
+      if (!endpoint) endpoint = "http://127.0.0.1:8000/api/projects";
+      axios.get(endpoint).then((response) => {
+        this.projects.list = response.data.data;
+        this.projects.pagination = response.data.links;
       });
     },
   },
@@ -37,7 +42,11 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <ProjectList :projectsList="projects.list" />
+    <ProjectList
+      :projectsList="projects.list"
+      :pagination="projects.pagination"
+      @changePage="fetchProjects"
+    />
   </main>
 </template>
 
