@@ -1,5 +1,5 @@
 <script>
-// COMPONENTS
+// COMPONENT
 import ProjectCard from "./ProjectCard.vue";
 
 export default {
