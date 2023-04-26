@@ -1,10 +1,6 @@
 <script>
-// AXIOS
-import axios from "axios";
-
-// COMPONENT
+// COMPONENTS
 import ProjectCard from "./ProjectCard.vue";
-import AppPagination from "./AppPagination.vue";
 import AppLoader from "./AppLoader.vue";
 
 export default {
@@ -12,47 +8,17 @@ export default {
 
   components: {
     ProjectCard,
-    AppPagination,
     AppLoader,
   },
 
-  emits: ["changePage"],
+  props: {
+    projectList: Array,
+  },
 
   data() {
     return {
-      projects: {
-        list: [],
-        pagination: [],
-      },
-
       isPageLoading: false,
     };
-  },
-
-  methods: {
-    fetchProjects(endpoint = null) {
-      if (!endpoint) endpoint = "http://127.0.0.1:8000/api/projects";
-
-      // Avvio caricamento pagina
-      this.isPageLoading = true;
-
-      axios
-        .get(endpoint)
-        .then((response) => {
-          this.projects.list = response.data.data;
-          this.projects.pagination = response.data.links;
-        })
-
-        // Infine
-        .finally(() => {
-          // Stoppo caricamento pagina
-          this.isPageLoading = false;
-        });
-    },
-  },
-
-  created() {
-    this.fetchProjects();
   },
 };
 </script>
@@ -60,19 +26,13 @@ export default {
 <template>
   <div v-if="!isPageLoading">
     <section id="project_list" class="container py-4">
-      <div v-if="projects.list.length">
+      <div v-if="projectList.length">
         <h1 class="my-4">I miei progetti</h1>
         <div class="row g-4">
-          <div class="col-6 d-flex" v-for="project in projects.list">
+          <div class="col-6 d-flex" v-for="project in projectList">
             <ProjectCard :project="project" />
           </div>
         </div>
-
-        <!-- Paginazione -->
-        <AppPagination
-          :pagination="projects.pagination"
-          @changePage="fetchProjects"
-        />
       </div>
 
       <div v-else>

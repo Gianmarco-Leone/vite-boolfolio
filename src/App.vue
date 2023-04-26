@@ -1,26 +1,26 @@
 <script>
 // COMPONENTS
 import AppHeader from "./components/AppHeader.vue";
-import ProjectList from "./components/ProjectList.vue";
+import ProjectListPage from "./pages/ProjectListPage.vue";
 
 export default {
   components: {
     AppHeader,
-    ProjectList,
+    ProjectListPage,
   },
 
   data() {
     return {
-      isPageLoading: false,
+      title: "Boolfolio",
     };
   },
 };
 </script>
 
 <template>
-  <AppHeader />
+  <AppHeader :title="title" />
   <main>
-    <ProjectList />
+    <ProjectListPage />
   </main>
 </template>
 
