@@ -1,12 +1,10 @@
 <script>
 // COMPONENTS
 import AppHeader from "./components/AppHeader.vue";
-import ProjectListPage from "./pages/ProjectListPage.vue";
 
 export default {
   components: {
     AppHeader,
-    ProjectListPage,
   },
 
   data() {
@@ -20,7 +18,7 @@ export default {
 <template>
   <AppHeader :title="title" />
   <main>
-    <ProjectListPage />
+    <router-view></router-view>
   </main>
 </template>
 

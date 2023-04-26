@@ -1,14 +1,10 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
-
-export default {
-  name: "HomePage",
-};
+export default {};
 </script>
 
 <template>
   <section class="container py-4">
-    <h1>Portfolio</h1>
+    <h1>Contatti</h1>
   </section>
 </template>
 
