@@ -22,7 +22,7 @@ export default {
         :to="{
           name: 'project-detail',
           params: {
-            id: project.id,
+            slug: project.slug,
           },
         }"
         class="btn btn-primary mt-auto align-self-start"
