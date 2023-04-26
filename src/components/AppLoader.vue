@@ -6,7 +6,12 @@ export default {};
   <section
     class="d-flex flex-column justify-content-center align-items-center text-white text-center"
   >
-    <p>loading...</p>
+    <p>
+      loading...
+      <span>
+        <font-awesome-icon :icon="['fas', 'circle-notch']" spin />
+      </span>
+    </p>
   </section>
 </template>
 

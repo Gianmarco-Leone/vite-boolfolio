@@ -29,12 +29,14 @@ export default {
         v-for="technology in project.technologies"
         :key="technology.id"
         class="rounded-pill me-2 px-3"
-        :style="{ backgroundColor: technology.color }"
+        :style="{ backgroundColor: technology.color, color: '#ffffff' }"
       >
         {{ technology.label }}
       </span>
     </div>
-    <img :src="project.image" class="card-img-top" />
+    <figure v-if="project.image" class="text-center">
+      <img :src="project.image" class="card-img-top" />
+    </figure>
     <div class="card-body">
       <p class="card-text">
         {{ project.description }}
@@ -52,7 +54,23 @@ export default {
         Scopri di più
       </router-link>
     </div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+      <span>
+        <strong>Creato il:</strong>
+        {{ project.created_at }}
+      </span>
+      <span>
+        <strong>Ultima modifica:</strong>
+        {{ project.updated_at }}
+      </span>
+    </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card {
+  img {
+    max-width: 500px;
+  }
+}
+</style>
