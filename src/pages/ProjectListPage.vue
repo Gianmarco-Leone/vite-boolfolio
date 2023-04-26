@@ -26,6 +26,7 @@ export default {
       },
 
       isPageLoading: false,
+      errorMessage: null,
     };
   },
 
@@ -43,8 +44,10 @@ export default {
           this.projects.pagination = response.data.links;
         })
 
+        // SE c'è un errore nella chiamata axios
         .catch((error) => {
-          this.$router.push({ name: "not-found" });
+          // this.$router.push({ name: "not-found" });
+          this.errorMessage = error.message;
         })
 
         // Infine
@@ -63,6 +66,12 @@ export default {
 
 <template>
   <div v-if="!isPageLoading">
+    <div v-if="errorMessage" class="container py-4">
+      <div class="alert alert-danger">
+        <strong>404 | NOT FOUND</strong>
+        <span>: {{ errorMessage }} </span>
+      </div>
+    </div>
     <ProjectList :projectList="projects.list" />
 
     <!-- Paginazione -->
