@@ -1,7 +1,32 @@
-# Vue 3 + Vite
+# Laravel Boolfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> Realizzazione front-office di un Portfolio
 
-## Recommended IDE Setup
+## Tecnologie e Librerie
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- HTML
+- CSS
+- Bootstrap
+- Javascript
+- Vue
+- Vite
+- Axios
+
+## Descrizione
+
+Dato un back-office realizzato con `Laravel 9` con all'interno delle API per richiamare i progetti presenti nel DB, realizziamo un front-office con `Vue 3 + Vite`.
+
+## Svolgimento
+
+### MIlestone 1
+
+Nel componente principale della nostra Vue App facciamo una chiamata API all’endpoint costruito nel progetto Laravel recuperiamo tutti i progetti dal nostro back-end.
+Creiamo un nuovo componente `ProjectCard`, che corrisponde ad una card per visualizzare un progetto e lo inseriamo all'interno di un ulteriore componente `ProjectList` Utilizziamo questo componente per visualizzare tutti i progetti ricevuti tramite API.
+
+### Bonus 1
+
+Gestiamo la paginazione dei risultati con un componento a parte `AppPagination`.
+
+### Bonus 2
+
+Realizzazione di un loader.
