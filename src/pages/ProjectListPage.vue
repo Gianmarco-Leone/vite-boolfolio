@@ -43,6 +43,10 @@ export default {
           this.projects.pagination = response.data.links;
         })
 
+        .catch((error) => {
+          this.$router.push({ name: "not-found" });
+        })
+
         // Infine
         .finally(() => {
           // Stoppo caricamento pagina

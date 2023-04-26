@@ -78,3 +78,7 @@ Gestiamo la paginazione dei risultati con un componente a parte `AppPagination`.
 ### Bonus 2
 
 Realizzazione di un loader con componente a parte `AppLoader`.
+
+### Bonus 3
+
+Gestione di eventuali errori 404 nelle chiamate axios.

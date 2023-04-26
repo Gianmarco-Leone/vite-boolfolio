@@ -31,6 +31,9 @@ export default {
         .then((response) => {
           this.project = response.data;
         })
+        .catch((error) => {
+          this.$router.push({ name: "not-found" });
+        })
         .finally(() => {
           this.isPageLoading = false;
         });
