@@ -6,7 +6,6 @@ export default {};
   <section
     class="d-flex flex-column justify-content-center align-items-center text-white text-center"
   >
-    <h1>I miei progetti</h1>
     <p>loading...</p>
   </section>
 </template>

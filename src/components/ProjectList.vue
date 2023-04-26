@@ -1,54 +1,87 @@
 <script>
+// AXIOS
+import axios from "axios";
+
 // COMPONENT
 import ProjectCard from "./ProjectCard.vue";
+import AppPagination from "./AppPagination.vue";
+import AppLoader from "./AppLoader.vue";
 
 export default {
   name: "ProjectList",
 
   components: {
     ProjectCard,
+    AppPagination,
+    AppLoader,
   },
 
-  props: {
-    projectsList: Array,
-    pagination: Array,
+  emits: ["changePage"],
+
+  data() {
+    return {
+      projects: {
+        list: [],
+        pagination: [],
+      },
+
+      isPageLoading: false,
+    };
+  },
+
+  methods: {
+    fetchProjects(endpoint = null) {
+      if (!endpoint) endpoint = "http://127.0.0.1:8000/api/projects";
+
+      // Avvio caricamento pagina
+      this.isPageLoading = true;
+
+      axios
+        .get(endpoint)
+        .then((response) => {
+          this.projects.list = response.data.data;
+          this.projects.pagination = response.data.links;
+        })
+
+        // Infine
+        .finally(() => {
+          // Stoppo caricamento pagina
+          this.isPageLoading = false;
+        });
+    },
+  },
+
+  created() {
+    this.fetchProjects();
   },
 };
 </script>
 
 <template>
-  <section id="project_list" class="container py-4">
-    <div v-if="projectsList.length">
-      <h1 class="my-4">I miei progetti</h1>
-      <div class="row g-4">
-        <div class="col-6 d-flex" v-for="project in projectsList">
-          <ProjectCard :project="project" />
+  <div v-if="!isPageLoading">
+    <section id="project_list" class="container py-4">
+      <div v-if="projects.list.length">
+        <h1 class="my-4">I miei progetti</h1>
+        <div class="row g-4">
+          <div class="col-6 d-flex" v-for="project in projects.list">
+            <ProjectCard :project="project" />
+          </div>
         </div>
+
+        <!-- Paginazione -->
+        <AppPagination
+          :pagination="projects.pagination"
+          @changePage="fetchProjects"
+        />
       </div>
 
-      <!-- Paginazione -->
-      <nav aria-label="Project pagination" class="mt-4">
-        <ul class="pagination">
-          <li class="page-item" v-for="page in pagination">
-            <button
-              type="button"
-              class="page-link"
-              @click="$emit('changePage', page.url)"
-              :class="{
-                disabled: !page.url,
-                active: page.active,
-              }"
-              v-html="page.label"
-            ></button>
-          </li>
-        </ul>
-      </nav>
-    </div>
+      <div v-else>
+        <h2>Nessun progetto da mostrare</h2>
+      </div>
+    </section>
+  </div>
 
-    <div v-else>
-      <h2>Nessun progetto da mostrare</h2>
-    </div>
-  </section>
+  <AppLoader v-else />
 </template>
 
 <style lang="scss" scoped>
