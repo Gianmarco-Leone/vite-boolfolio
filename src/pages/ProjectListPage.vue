@@ -8,6 +8,8 @@ import AppPagination from "../components/AppPagination.vue";
 import AppLoader from "../components/AppLoader.vue";
 
 export default {
+  name: "ProjectListPage",
+
   components: {
     ProjectList,
     AppPagination,

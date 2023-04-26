@@ -21,7 +21,7 @@ export default {
       <h1 class="my-4">I miei progetti</h1>
       <div class="row g-4">
         <div class="col-6 d-flex" v-for="project in projectList">
-          <ProjectCard :project="project" />
+          <ProjectCard :project="project" :isDetailPage="false" />
         </div>
       </div>
     </div>

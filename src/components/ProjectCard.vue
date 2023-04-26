@@ -4,6 +4,7 @@ export default {
 
   props: {
     project: Object,
+    isDetailPage: Boolean,
   },
 };
 </script>
@@ -16,9 +17,18 @@ export default {
       <p class="card-text">
         {{ project.description }}
       </p>
-      <button type="button" class="btn btn-primary mt-auto align-self-start">
+      <router-link
+        v-if="!isDetailPage"
+        :to="{
+          name: 'project-detail',
+          params: {
+            id: project.id,
+          },
+        }"
+        class="btn btn-primary mt-auto align-self-start"
+      >
         Scopri di più
-      </button>
+      </router-link>
     </div>
   </div>
 </template>
