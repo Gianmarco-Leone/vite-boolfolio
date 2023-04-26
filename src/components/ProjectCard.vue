@@ -11,9 +11,31 @@ export default {
 
 <template>
   <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="card-title">{{ project.title }}</h5>
+      <span
+        v-if="project.type"
+        class="badge"
+        :style="{ backgroundColor: project.type.color }"
+      >
+        {{ project.type.label }}
+      </span>
+    </div>
+    <div
+      v-if="project.technologies.length && isDetailPage"
+      class="card-title d-flex align-items-center justify-content-center border-bottom py-3"
+    >
+      <span
+        v-for="technology in project.technologies"
+        :key="technology.id"
+        class="rounded-pill me-2 px-3"
+        :style="{ backgroundColor: technology.color }"
+      >
+        {{ technology.label }}
+      </span>
+    </div>
     <img :src="project.image" class="card-img-top" />
     <div class="card-body">
-      <h5 class="card-title">{{ project.title }}</h5>
       <p class="card-text">
         {{ project.description }}
       </p>
