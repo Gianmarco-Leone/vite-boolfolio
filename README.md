@@ -25,8 +25,8 @@ Creiamo un nuovo componente `ProjectCard`, che corrisponde ad una card per visua
 
 ### Bonus 1
 
-Gestiamo la paginazione dei risultati con un componento a parte `AppPagination`.
+Gestiamo la paginazione dei risultati con un componente a parte `AppPagination`.
 
 ### Bonus 2
 
-Realizzazione di un loader.
+Realizzazione di un loader con componente a parte `AppLoader`.

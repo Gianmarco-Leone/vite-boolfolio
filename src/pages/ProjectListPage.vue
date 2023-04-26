@@ -5,11 +5,13 @@ import axios from "axios";
 // COMPONENTS
 import ProjectList from "../components/ProjectList.vue";
 import AppPagination from "../components/AppPagination.vue";
+import AppLoader from "../components/AppLoader.vue";
 
 export default {
   components: {
     ProjectList,
     AppPagination,
+    AppLoader,
   },
 
   emits: ["changePage"],
@@ -20,6 +22,8 @@ export default {
         list: [],
         pagination: [],
       },
+
+      isPageLoading: false,
     };
   },
 
@@ -52,10 +56,14 @@ export default {
 </script>
 
 <template>
-  <ProjectList :projectList="projects.list" />
+  <div v-if="!isPageLoading">
+    <ProjectList :projectList="projects.list" />
 
-  <!-- Paginazione -->
-  <AppPagination :pages="projects.pagination" @changePage="fetchProjects" />
+    <!-- Paginazione -->
+    <AppPagination :pages="projects.pagination" @changePage="fetchProjects" />
+  </div>
+
+  <AppLoader v-else />
 </template>
 
 <style lang="scss" scoped></style>
