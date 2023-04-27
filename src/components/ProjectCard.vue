@@ -13,13 +13,19 @@ export default {
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
       <h5 class="card-title">{{ project.title }}</h5>
-      <span
+      <router-link
+        :to="{
+          name: 'type-projects',
+          params: {
+            type_id: project.type_id,
+          },
+        }"
         v-if="project.type"
         class="badge"
         :style="{ backgroundColor: project.type.color }"
       >
         {{ project.type.label }}
-      </span>
+      </router-link>
     </div>
     <div
       v-if="project.technologies.length && isDetailPage"
@@ -56,7 +62,7 @@ export default {
     </div>
     <div class="card-footer d-flex align-items-center justify-content-between">
       <span>
-        <strong>Creato il:</strong>
+        <strong>Creato:</strong>
         {{ project.created_at }}
       </span>
       <span>

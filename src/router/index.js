@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage.vue";
 import ProjectListPage from "../pages/ProjectListPage.vue";
 import ContactsPage from "../pages/ContactsPage.vue";
 import ProjectDetailPage from "../pages/ProjectDetailPage.vue";
+import TypeProjectPage from "../pages/TypeProjectPage.vue";
 import NotFoundPage from "../pages/NotFoundPage.vue";
 
 const router = createRouter({
@@ -31,6 +32,11 @@ const router = createRouter({
       path: "/projects/:slug",
       name: "project-detail",
       component: ProjectDetailPage,
+    },
+    {
+      path: "/type/:type_id/projects",
+      name: "type-projects",
+      component: TypeProjectPage,
     },
     {
       path: "/:pathMatch(.*)*",
