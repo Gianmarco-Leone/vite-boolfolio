@@ -20,28 +20,35 @@ export default {
 
   data() {
     return {
+      errorMessage: null,
+      isPageLoading: false,
+      type: null,
+
       projects: {
         list: [],
         pagination: [],
       },
-
-      errorMessage: null,
-      isPageLoading: false,
     };
+  },
+
+  props: {
+    request: String,
   },
 
   methods: {
     fetchProjects(endpoint = null) {
-      if (!endpoint) endpoint = "http://127.0.0.1:8000/api/projects";
-
       // Avvio caricamento pagina
       this.isPageLoading = true;
+
+      if (!endpoint) endpoint = this.baseEndpoint;
 
       axios
         .get(endpoint)
         .then((response) => {
-          this.projects.list = response.data.data;
-          this.projects.pagination = response.data.links;
+          this.projects.list = response.data.projects.data;
+          this.projects.pagination = response.data.projects.links;
+
+          if (response.data.type) this.type = response.data.type;
         })
 
         // SE c'è un errore nella chiamata axios
@@ -55,6 +62,24 @@ export default {
           // Stoppo caricamento pagina
           this.isPageLoading = false;
         });
+    },
+  },
+
+  computed: {
+    title() {
+      if (this.request == "all-projects") return "I miei progetti";
+
+      if (this.request == "by-type") return "Progetti per tipologia";
+
+      return "I miei progetti";
+    },
+
+    baseEndpoint() {
+      if (this.request == "all-projects")
+        return "http://127.0.0.1:8000/api/projects";
+      if (this.request == "by-type")
+        return `http://127.0.0.1:8000/api/type/${this.$route.params.type_id}/projects`;
+      return "http://127.0.0.1:8000/api/projects";
     },
   },
 
@@ -75,7 +100,7 @@ export default {
 
     <section id="project_list" class="container py-4">
       <div v-if="projects.list.length">
-        <h1 class="my-4">I miei progetti</h1>
+        <h1 class="my-4">{{ title }}</h1>
         <div class="row g-4">
           <div class="col-6 d-flex" v-for="project in projects.list">
             <ProjectCard :project="project" :isDetailPage="false" />

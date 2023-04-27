@@ -1,13 +1,18 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+// COMPONENTS
+import ProjectList from "../components/ProjectList.vue";
 
 export default {
   name: "TypeProjectPage",
+
+  components: {
+    ProjectList,
+  },
 };
 </script>
 
 <template>
-  <h1>Test per tipologia</h1>
+  <ProjectList request="by-type" />
 </template>
 
 <style lang="scss" scoped></style>

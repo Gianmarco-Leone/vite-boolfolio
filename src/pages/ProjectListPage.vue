@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <ProjectList />
+  <ProjectList request="all-projects" />
 </template>
 
 <style lang="scss" scoped></style>
