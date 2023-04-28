@@ -1,4 +1,7 @@
 <script>
+// AXIOS
+import axios from "axios";
+
 export default {
   name: "AppForm",
 
@@ -17,23 +20,54 @@ export default {
   methods: {
     sendMessage() {
       this.errors = [];
+      this.succes = false;
       const message = {
         author: this.message.author,
         email: this.message.email,
         text: this.message.text,
       };
+
+      // Chiamata Axios
+      axios
+        .post("http://127.0.0.1:8000/api/messages", message)
+        .then((response) => {
+          this.message.author = "";
+          this.message.email = "";
+          this.message.text = "";
+          this.success = true;
+        })
+        .catch((error) => {
+          const response_errors = error.response.data.errors;
+          for (const field in response_errors) {
+            this.errors.push(response_errors[field][0]);
+          }
+        })
+        .finally();
     },
   },
 };
 </script>
 
 <template>
+  <!-- In caso di errore chiamata axios -->
+  <div v-if="errors.length" class="alert alert-danger">
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+  </div>
+
+  <!-- In caso di invio messaggio effettuato -->
+  <div v-if="success" class="alert alert-success">
+    Messaggio inviato con successo
+  </div>
+
   <form class="row" @submit.prevent="sendMessage">
     <div class="col-6">
       <input
         type="text"
-        name=""
+        name="author"
         id="author"
+        v-model="message.author"
         placeholder="Inserisci il tuo nome"
         class="w-100"
       />
@@ -42,8 +76,9 @@ export default {
     <div class="col-6">
       <input
         type="email"
-        name=""
+        name="email"
         id="email"
+        v-model="message.email"
         placeholder="Inserisci la tua email"
         class="w-100"
       />
@@ -51,8 +86,9 @@ export default {
 
     <div class="col-12 my-4">
       <textarea
-        name=""
+        name="text"
         id="text"
+        v-model="message.text"
         rows="5"
         class="w-100"
         placeholder="Lascia un messaggio qui e verrai ricontattato"
