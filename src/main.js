@@ -13,8 +13,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 /* import specific icons */
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 /* add icons to the library */
-library.add(faCircleNotch);
+library.add(faCircleNotch, faLinkedin, faSquareGithub);
 
 import App from "./App.vue";
 
