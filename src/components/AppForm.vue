@@ -1,9 +1,12 @@
 <script>
 // AXIOS
 import axios from "axios";
+import AppLoader from "./AppLoader.vue";
 
 export default {
   name: "AppForm",
+
+  components: { AppLoader },
 
   data() {
     return {
@@ -14,19 +17,19 @@ export default {
       },
       errors: [],
       success: false,
+      isPageLoading: false,
     };
   },
-
   methods: {
     sendMessage() {
+      this.isPageLoading = true;
       this.errors = [];
-      this.succes = false;
+      this.success = false;
       const message = {
         author: this.message.author,
         email: this.message.email,
         text: this.message.text,
       };
-
       // Chiamata Axios
       axios
         .post("http://127.0.0.1:8000/api/messages", message)
@@ -42,13 +45,16 @@ export default {
             this.errors.push(response_errors[field][0]);
           }
         })
-        .finally();
+        .finally(() => {
+          this.isPageLoading = false;
+        });
     },
   },
 };
 </script>
 
 <template>
+  <AppLoader v-if="isPageLoading" />
   <!-- In caso di errore chiamata axios -->
   <div v-if="errors.length" class="alert alert-danger">
     <ul>
