@@ -1,5 +1,46 @@
-@use "../scss/partials/variables";
+@use "./partials/_variables.scss" as *;
 
-ul {
-  list-style: none;
+body {
+  background-color: $bg-color;
+  color: #fff;
+
+  ul {
+    list-style: none;
+  }
+
+  // * Pill
+  .my-pill {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    background-color: $primary-color;
+    color: $bg-color;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $bg-color;
+      color: $primary-color;
+      border: 2px solid $primary-color;
+      transform: scale(1.2);
+    }
+
+    &.active {
+      border: 1px solid white;
+    }
+  }
+
+  // * Button
+  .my-btn {
+    display: inline-block;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: #eee;
+    font-weight: 400;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

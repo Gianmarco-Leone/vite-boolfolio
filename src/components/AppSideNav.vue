@@ -13,6 +13,12 @@ export default {
     </div>
 
     <div>
+      <router-link :to="{ name: 'projects' }" class="nav-link" title="Projects">
+        <font-awesome-icon :icon="['fas', 'laptop']" />
+      </router-link>
+    </div>
+
+    <div>
       <router-link :to="{ name: 'contacts' }" class="nav-link" title="Contacts">
         <font-awesome-icon :icon="['fas', 'phone']" />
       </router-link>
@@ -23,16 +29,11 @@ export default {
         <font-awesome-icon :icon="['fas', 'address-card']" />
       </router-link>
     </div>
-
-    <div>
-      <router-link :to="{ name: 'projects' }" class="nav-link" title="Projects">
-        <font-awesome-icon :icon="['fas', 'laptop']" />
-      </router-link>
-    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@use "../assets/scss/partials/variables.scss" as *;
 .side-nav {
   position: absolute;
   right: 0;
@@ -46,7 +47,7 @@ export default {
       transform: scale(1.4);
     }
     .active {
-      color: red;
+      color: $primary-color;
     }
   }
 }
