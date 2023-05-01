@@ -5,6 +5,7 @@ import axios from "axios";
 // COMPONENTS
 import ProjectCard from "../components/ProjectCard.vue";
 import AppLoader from "../components/AppLoader.vue";
+import AppSideNav from "../components/AppSideNav.vue";
 
 export default {
   name: "ProjectDetailPage",
@@ -12,6 +13,7 @@ export default {
   components: {
     ProjectCard,
     AppLoader,
+    AppSideNav,
   },
 
   data() {
@@ -51,6 +53,8 @@ export default {
     <h1 class="text-center">{{ project?.title }}</h1>
 
     <ProjectCard v-if="project" :project="project" :isDetailPage="true" />
+
+    <AppSideNav />
   </section>
 
   <AppLoader v-else />

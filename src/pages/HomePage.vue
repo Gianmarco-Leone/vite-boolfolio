@@ -1,14 +1,21 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+// COMPONENTS
+import AppSideNav from "../components/AppSideNav.vue";
 
 export default {
   name: "HomePage",
+
+  components: {
+    AppSideNav,
+  },
 };
 </script>
 
 <template>
   <section class="container py-4">
     <h1>Portfolio</h1>
+
+    <AppSideNav />
   </section>
 </template>
 

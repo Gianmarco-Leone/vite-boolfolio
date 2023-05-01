@@ -15,8 +15,21 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faSquareGithub } from "@fortawesome/free-brands-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
+import { faLaptop } from "@fortawesome/free-solid-svg-icons";
+
 /* add icons to the library */
-library.add(faCircleNotch, faLinkedin, faSquareGithub);
+library.add(
+  faCircleNotch,
+  faLinkedin,
+  faSquareGithub,
+  faHouse,
+  faPhone,
+  faAddressCard,
+  faLaptop
+);
 
 import App from "./App.vue";
 

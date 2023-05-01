@@ -1,12 +1,14 @@
 <script>
 // COMPONENTS
 import AppForm from "../components/AppForm.vue";
+import AppSideNav from "../components/AppSideNav.vue";
 
 export default {
   name: "ContactsPage;",
 
   components: {
     AppForm,
+    AppSideNav,
   },
 };
 </script>
@@ -37,13 +39,14 @@ export default {
       </li>
     </ul>
 
+    <AppSideNav />
+
     <AppForm />
   </section>
 </template>
 
 <style lang="scss" scoped>
 ul {
-  list-style: none;
   padding: 0;
 
   li {
