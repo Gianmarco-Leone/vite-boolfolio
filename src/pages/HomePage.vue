@@ -16,35 +16,62 @@ export default {
   },
 
   methods: {
+    // Funzione per autoscrittura
     typeText() {
+      // SE l'indice del carattere è minore della lunghezza della frase da scrivere
       if (this.charIndex < this.typeArray[this.typeArrayIndex].length) {
+        // Setto lo stato a VERO se FALSO
         if (!this.typeStatus) this.typeStatus = true;
 
+        // Aggiungo al testo da scrivere il carattere che corrisponde a quell'indice
         this.textToType += this.typeArray[this.typeArrayIndex].charAt(
           this.charIndex
         );
+
+        // Incremento l'indice del carattere di 1
         this.charIndex += 1;
 
+        // Avvio un TimeOut che stampa il testo a seconda della velocità passata come variabile nei data()
         setTimeout(this.typeText, this.typingSpeed);
       } else {
+        // ALTRIMENTI setto lo stato a FALSO
         this.typeStatus = false;
+
+        // Invoco funzione per cancellare il testo
         setTimeout(this.eraseText, this.newTextDelay);
       }
     },
 
+    // Funzione per cancellazione automatica del testo
     eraseText() {
-      if (this.charIndex > 0) {
+      // SE l'indice del carattere è maggiore di 0 E è minore della lunghezza della seconda frase
+      if (this.charIndex > 0 && this.charIndex < this.typeArray[1].length) {
+        // Setto lo stato a VERO se FALSO
         if (!this.typeStatus) this.typeStatus = true;
 
+        // Invoco metodo substring() per rimuovere un carattere dalla frase
         this.textToType = this.typeArray[this.typeArrayIndex].substring(
           0,
           this.charIndex - 1
         );
+
+        // Decremento indice del carattere di 1
         this.charIndex -= 1;
 
+        // Avvio un TimeOut per cancellare carattere per carattere dato un periodo di tempo nei data
         setTimeout(this.eraseText, this.erasingSpeed);
+
+        // ALTRIMENTI SE l'indice del carattere è uguale alla lunghezza della secondo frase
+      } else if (this.charIndex == this.typeArray[1].length) {
+        // Setto variabile VERA per stoppare animazione cursore
+        this.typeStatus = true;
+
+        // ALTRIMENTI
       } else {
+        // Setto variabile FALSA
         this.typeStatus = false;
+
+        // Passo alla seconda frase
         this.typeArrayIndex += 1;
 
         if (this.typeArrayIndex >= this.typeArray.length)
