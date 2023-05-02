@@ -117,6 +117,16 @@ export default {
             <ProjectCard :project="project" :isDetailPage="false" />
           </div>
         </div>
+
+        <div class="text-center mt-5">
+          <a
+            href="https://github.com/Gianmarco-Leone"
+            target="_blank"
+            class="my-btn"
+          >
+            Visualizza gli altri miei progetti su GitHub
+          </a>
+        </div>
       </div>
 
       <div v-else>
@@ -134,6 +144,11 @@ export default {
     min-height: 190px;
     display: flex;
     flex-direction: column;
+  }
+
+  .my-btn:hover {
+    transform: scale(1.2);
+    transition: 2s;
   }
 }
 </style>

@@ -33,9 +33,18 @@ export default {
 @use "../assets/scss/partials/variables" as *;
 
 .pagination {
-  .page-link.active {
-    background-color: $primary-color;
-    border-color: $primary-color;
+  .page-link {
+    color: $primary-color;
+
+    &.active {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: #fff;
+    }
+
+    &.disabled {
+      color: #6c757d;
+    }
   }
 }
 </style>

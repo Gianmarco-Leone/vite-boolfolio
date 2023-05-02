@@ -23,7 +23,10 @@ export default {
 </script>
 
 <template>
-  <div class="card">
+  <div
+    class="card"
+    :class="isDetailPage ? 'card-detail-page' : 'card-list-page'"
+  >
     <div class="card-header d-flex justify-content-between align-items-center">
       <h5 class="card-title">{{ project.title }}</h5>
       <router-link
@@ -87,6 +90,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../assets/scss/partials/animation" as *;
+
 .card {
   color: #111;
 
@@ -98,6 +103,10 @@ export default {
     min-height: 3rem;
     max-height: 10rem;
     overflow-y: auto;
+  }
+
+  &.card-list-page:hover {
+    animation: shake 0.5s linear;
   }
 }
 </style>
