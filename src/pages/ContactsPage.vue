@@ -15,7 +15,7 @@ export default {
 
 <template>
   <section class="container py-4">
-    <h1 class="my-3">Contact me</h1>
+    <h1 class="primary-underline my-3">Contact me</h1>
     <ul>
       <li><strong>Mobile:</strong> 3929873496</li>
       <li><strong>Email:</strong> gianmarcoleone96@gmail.com</li>

@@ -1,0 +1,10 @@
+.my-fade-from-bottom {
+  animation: fadeFromBottom 1s linear;
+}
+
+@keyframes fadeFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+}

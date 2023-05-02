@@ -43,4 +43,9 @@ body {
       opacity: 0.8;
     }
   }
+
+  .primary-underline {
+    text-decoration: underline;
+    text-decoration-color: $primary-color;
+  }
 }

@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <section class="d-flex align-items-center py-4">
+  <section class="d-flex align-items-center py-4 my-fade-from-bottom">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-3">
@@ -44,9 +44,10 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/partials/variables" as *;
+@use "../assets/scss/partials/animation" as *;
 
 section {
-  height: 100vh;
+  min-height: 100vh;
 
   .col-12 {
     min-height: 400px;
