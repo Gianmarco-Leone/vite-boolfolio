@@ -60,8 +60,11 @@ export default {
       <img :src="project.image" class="card-img-top" />
     </figure>
     <div class="card-body">
-      <p class="card-text">
+      <p v-if="!isDetailPage" class="card-text">
         {{ getAbstract(51) }}
+      </p>
+      <p v-else-if="isDetailPage" class="card-text">
+        {{ project.description }}
       </p>
       <router-link
         v-if="!isDetailPage"

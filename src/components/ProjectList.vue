@@ -69,7 +69,8 @@ export default {
     title() {
       if (this.request == "all-projects") return "I miei progetti";
 
-      if (this.request == "by-type") return "Progetti per tipologia";
+      if (this.request == "by-type")
+        return "Progetti " + this.projects.list[0].type.label;
 
       return "I miei progetti";
     },
