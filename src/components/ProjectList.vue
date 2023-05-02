@@ -100,9 +100,20 @@ export default {
 
     <section id="project_list" class="container py-4">
       <div v-if="projects.list.length">
-        <h1 class="my-4">{{ title }}</h1>
+        <div class="row justify-content-between">
+          <div class="col-5">
+            <h1 class="my-4">{{ title }}</h1>
+          </div>
+          <div class="col-3">
+            <!-- Paginazione -->
+            <AppPagination
+              :pages="projects.pagination"
+              @changePage="fetchProjects"
+            />
+          </div>
+        </div>
         <div class="row g-4">
-          <div class="col-6 d-flex" v-for="project in projects.list">
+          <div class="col-4 d-flex" v-for="project in projects.list">
             <ProjectCard :project="project" :isDetailPage="false" />
           </div>
         </div>
@@ -112,9 +123,6 @@ export default {
         <h2>Nessun progetto da mostrare</h2>
       </div>
     </section>
-
-    <!-- Paginazione -->
-    <AppPagination :pages="projects.pagination" @changePage="fetchProjects" />
   </div>
 
   <AppLoader v-else />

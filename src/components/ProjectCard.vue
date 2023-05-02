@@ -6,6 +6,19 @@ export default {
     project: Object,
     isDetailPage: Boolean,
   },
+
+  data() {
+    return {
+      substr: "",
+    };
+  },
+
+  methods: {
+    getAbstract(characters) {
+      return (this.substr =
+        this.project.description.substr(0, characters) + "...");
+    },
+  },
 };
 </script>
 
@@ -45,7 +58,7 @@ export default {
     </figure>
     <div class="card-body">
       <p class="card-text">
-        {{ project.description }}
+        {{ getAbstract(51) }}
       </p>
       <router-link
         v-if="!isDetailPage"
@@ -55,7 +68,7 @@ export default {
             slug: project.slug,
           },
         }"
-        class="btn btn-primary mt-auto align-self-start"
+        class="my-btn mt-auto align-self-start"
       >
         Scopri di più
       </router-link>
@@ -75,8 +88,16 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  color: #111;
+
   img {
     max-width: 500px;
+  }
+
+  .card-text {
+    min-height: 3rem;
+    max-height: 10rem;
+    overflow-y: auto;
   }
 }
 </style>

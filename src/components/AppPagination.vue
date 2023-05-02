@@ -29,4 +29,13 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use "../assets/scss/partials/variables" as *;
+
+.pagination {
+  .page-link.active {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+</style>

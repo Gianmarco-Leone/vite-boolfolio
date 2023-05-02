@@ -50,7 +50,7 @@ export default {
 
 <template>
   <section v-if="!isPageLoading" class="container py-4">
-    <h1 class="text-center">{{ project?.title }}</h1>
+    <h1 class="text-center my-4">{{ project?.title }}</h1>
 
     <ProjectCard v-if="project" :project="project" :isDetailPage="true" />
 
