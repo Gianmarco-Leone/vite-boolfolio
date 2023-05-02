@@ -8,3 +8,19 @@
     transform: translateY(200px);
   }
 }
+
+.my-cursor-blink {
+  animation: cursorBlink 1s infinite;
+}
+
+@keyframes cursorBlink {
+  49% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: transparent;
+  }
+  99% {
+    background-color: transparent;
+  }
+}
