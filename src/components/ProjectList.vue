@@ -103,7 +103,7 @@ export default {
       <div v-if="projects.list.length">
         <div class="row justify-content-between">
           <div class="col-5">
-            <h1 class="my-4">{{ title }}</h1>
+            <h1 class="my-4 primary-underline">{{ title }}</h1>
           </div>
           <div class="col-3">
             <!-- Paginazione -->

@@ -6,7 +6,7 @@ export default {
     return {
       textToType: "",
       typeStatus: false,
-      typeArray: ["I'm Web Developer.", "I'm Full Stack Web Developer."],
+      typeArray: ["Sono un Web Deve", "Sono un Full Stack Web Developer."],
       typingSpeed: 200,
       erasingSpeed: 100,
       newTextDelay: 2000,
@@ -99,7 +99,7 @@ export default {
         </div>
         <div class="col-3 text-end">
           <router-link :to="{ name: 'projects' }" class="my-pill nav-link"
-            >Projects</router-link
+            >Progetti</router-link
           >
         </div>
       </div>
@@ -108,7 +108,7 @@ export default {
         <div
           class="col-12 d-flex flex-column justify-content-center align-items-center"
         >
-          <span class="d-block">Hi, my name is Gianmarco. </span>
+          <span class="d-block">Benvenuto, io sono Gianmarco. </span>
           <div>
             <span class="typed-text">
               {{ textToType }}
@@ -125,7 +125,7 @@ export default {
       <div class="row justify-content-center">
         <div class="col-3">
           <router-link :to="{ name: 'contacts' }" class="my-pill nav-link"
-            >Contacts</router-link
+            >Contatti</router-link
           >
         </div>
         <div class="col-3 text-end">

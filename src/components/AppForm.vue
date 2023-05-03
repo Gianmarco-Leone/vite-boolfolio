@@ -74,7 +74,7 @@ export default {
         name="author"
         id="author"
         v-model="message.author"
-        placeholder="Insert your name"
+        placeholder="Inserisci il tuo nome"
         class="w-100"
       />
     </div>
@@ -85,7 +85,7 @@ export default {
         name="email"
         id="email"
         v-model="message.email"
-        placeholder="Insert your email"
+        placeholder="Inserisci la tua email"
         class="w-100"
       />
     </div>
@@ -97,7 +97,7 @@ export default {
         v-model="message.text"
         rows="5"
         class="w-100"
-        placeholder="Fill out the form and send me your message, you'll be contacted"
+        placeholder="Lascia qui un messaggio"
       ></textarea>
     </div>
 

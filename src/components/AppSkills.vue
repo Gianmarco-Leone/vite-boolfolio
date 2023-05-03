@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div class="row justify-content-center">
-    <h2 class="text-center primary-underline my-5">Skills</h2>
+    <h2 class="text-center primary-underline my-5">Competenze</h2>
 
     <div class="col-5">
       <div class="my-card">
@@ -14,7 +14,7 @@ export default {
           <h3>Frontend</h3>
         </div>
         <div class="my-card-body">
-          <h4 class="mb-3">I know:</h4>
+          <h4 class="mb-3">Tecnologie conosciute:</h4>
           <p>HTML, CSS, Bootstrap, Tailwind, Sass, Javascript, Vue</p>
         </div>
       </div>
@@ -26,7 +26,7 @@ export default {
           <h3>Backend</h3>
         </div>
         <div class="my-card-body">
-          <h4 class="mb-3">I know:</h4>
+          <h4 class="mb-3">Tecnologie conosciute:</h4>
           <p>PHP, SQL, MySql, Laravel</p>
         </div>
       </div>
