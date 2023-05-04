@@ -106,7 +106,7 @@ export default {
 
       <div class="row">
         <div
-          class="col-12 d-flex flex-column justify-content-center align-items-center"
+          class="col-12 d-flex flex-column justify-content-center align-items-center text-center"
         >
           <span class="d-block">Benvenuto, io sono Gianmarco. </span>
           <div>

@@ -50,9 +50,16 @@ export default {
 
 <template>
   <section v-if="!isPageLoading" class="container py-4">
-    <h1 class="text-center primary-underline my-4">{{ project?.title }}</h1>
+    <div class="row justify-content-center">
+      <h1 class="text-center primary-underline my-4">{{ project?.title }}</h1>
 
-    <ProjectCard v-if="project" :project="project" :isDetailPage="true" />
+      <ProjectCard
+        v-if="project"
+        :project="project"
+        :isDetailPage="true"
+        class="col-10"
+      />
+    </div>
 
     <AppSideNav />
   </section>

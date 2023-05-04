@@ -45,12 +45,12 @@ export default {
     </div>
     <div
       v-if="project.technologies.length && isDetailPage"
-      class="card-title d-flex align-items-center justify-content-center border-bottom py-3"
+      class="card-title d-flex flex-wrap align-items-center justify-content-center border-bottom py-3"
     >
       <span
         v-for="technology in project.technologies"
         :key="technology.id"
-        class="rounded-pill me-2 px-3"
+        class="rounded-pill me-2 px-3 my-2 my-lg-0"
         :style="{ backgroundColor: technology.color, color: '#ffffff' }"
       >
         {{ technology.label }}

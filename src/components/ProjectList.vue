@@ -99,13 +99,13 @@ export default {
       </div>
     </div>
 
-    <section id="project_list" class="container py-4">
-      <div v-if="projects.list.length">
+    <section id="project_list" class="py-4">
+      <div v-if="projects.list.length" class="container">
         <div class="row justify-content-between">
-          <div class="col-5">
+          <div class="col-6 col-md-5">
             <h1 class="my-4 primary-underline">{{ title }}</h1>
           </div>
-          <div class="col-3">
+          <div class="col-6 col-md-5 col-xl-3">
             <!-- Paginazione -->
             <AppPagination
               :pages="projects.pagination"
@@ -114,7 +114,10 @@ export default {
           </div>
         </div>
         <div class="row g-4">
-          <div class="col-4 d-flex" v-for="project in projects.list">
+          <div
+            class="col-10 col-sm-6 col-md-4 d-flex"
+            v-for="project in projects.list"
+          >
             <ProjectCard :project="project" :isDetailPage="false" />
           </div>
         </div>
